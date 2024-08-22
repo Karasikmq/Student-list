@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления студентами</title>
+    <script defer src="./teech_panel.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background-color: #f1f1f1;
+        }
+
+        input, select, button {
+            margin: 5px;
+        }
+
+        .filter-style {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #989898;
+        }
+
+        .input-style {
+            width: 200px;
+            margin: 5px;
+            display: block;
+            padding: 12px;
+            border: 1px solid #989898;
+        }
+
+        .input-date {
+            width: 226px;
+        }
+
+        .add-student {
+            margin: 10px;
+            margin-top: 0;
+            width: 150px;
+            padding: 10px 5px;
+            background-color: #fff;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .delete-student {
+            background-color: #ff4d4d;
+            border: none;
+            padding: 5px 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+            margin-left: 10px;
+            font-size: 12px;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список студентов</h1>
+    <div id="filter-form">
+        <input class="filter-style" type="text" id="filter-fio" placeholder="Ф. И. О.">
+        <input class="filter-style" type="text" id="filter-faculty" placeholder="Факультет">
+        <input class="filter-style" type="text" id="filter-start-year" placeholder="Год начала обучения">
+        <input class="filter-style" type="text" id="filter-end-year" placeholder="Год окончания обучения">
+    </div>
+    <table id="students-table">
+        <thead>
+            <tr>
+                <th data-sort="fio">ФИО</th>
+                <th data-sort="birthDate">Дата рождения (возраст)</th>
+                <th data-sort="startYear">Год начала обучения (курс)</th>
+                <th data-sort="faculty">Факультет</th>
+                <th data-sort="endYear">Год окончания обучения</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <h2>Добавить нового студента</h2>
+    <form id="add-student-form">
+        <div>
+            <input class="input-style" type="text" id="first-name" placeholder="Имя">
+            <span class="error-message" id="first-name-error"></span>
+        </div>
+        <div>
+            <input class="input-style" type="text" id="last-name" placeholder="Фамилия">
+            <span class="error-message" id="last-name-error"></span>
+        </div>
+        <div>
+            <input class="input-style" type="text" id="patronymic" placeholder="Отчество">
+            <span class="error-message" id="patronymic-error"></span>
+        </div>
+        <div>
+            <input class="input-style" type="date" id="birth-date" placeholder="Дата рождения">
+            <span class="error-message" id="birth-date-error"></span>
+        </div>
+        <div>
+            <input class="input-style input-date" type="text" id="start-year" placeholder="Год поступления">
+            <span class="error-message" id="start-year-error"></span>
+        </div>
+        <div>
+            <input class="input-style" type="text" id="faculty" placeholder="Факультет">
+            <span class="error-message" id="faculty-error"></span>
+        </div>
+        <button class="add-student" type="submit">Добавить студента</button>
+    </form>
+
+</body>
+</html>
+
